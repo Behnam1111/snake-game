@@ -7,6 +7,7 @@ class Snake:
     def __init__(self):
         self.all_turtles = []
         self.create_snake()
+        self.head = self.all_turtles[0]
 
     def create_snake(self):
         for position in self.starting_positions:
@@ -19,22 +20,22 @@ class Snake:
     def move(self):
         for turtle_index in range(len(self.all_turtles) - 1, 0, -1):
             self.all_turtles[turtle_index].setposition(self.all_turtles[turtle_index - 1].pos())
-        self.all_turtles[0].forward(20)
+        self.head.forward(20)
 
     def up(self):
-        self.all_turtles[0].setheading(90)
-        self.move()
+        if self.head.heading() != 180:
+            self.head.setheading(90)
 
     def left(self):
-        self.all_turtles[0].setheading(180)
-        self.move()
+        if self.head.heading() != 0:
+            self.head.setheading(180)
 
     def down(self):
-        self.all_turtles[0].setheading(270)
-        self.move()
+        if self.head.heading() != 90:
+            self.head.setheading(270)
 
     def right(self):
-        self.all_turtles[0].setheading(0)
-        self.move()
+        if self.head.heading() != 0:
+            self.head.setheading(180)
 
 
