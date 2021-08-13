@@ -28,7 +28,9 @@ while game_is_on:
     if snake.head.distance(food) < 15:
         scoreboard.raise_score()
         food.refresh()
-    if snake.is_collision_with_wall():
+        snake.extend()
+    if snake.is_collision_with_wall() or snake.is_collision_with_tail():
         game_is_on = False
+        scoreboard.game_over()
 
 screen.exitonclick()

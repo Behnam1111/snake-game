@@ -11,11 +11,17 @@ class Snake:
 
     def create_snake(self):
         for position in self.starting_positions:
-            new_turtle = Turtle(shape="square")
-            new_turtle.color("white", "white")
-            new_turtle.penup()
-            new_turtle.setposition(position)
-            self.all_turtles.append(new_turtle)
+            self.add_snake(position)
+
+    def add_snake(self, position):
+        new_turtle = Turtle(shape="square")
+        new_turtle.color("white", "white")
+        new_turtle.penup()
+        new_turtle.setposition(position)
+        self.all_turtles.append(new_turtle)
+
+    def extend(self):
+        self.add_snake(self.all_turtles[-1].position())
 
     def move(self):
         for turtle_index in range(len(self.all_turtles) - 1, 0, -1):
@@ -41,5 +47,12 @@ class Snake:
     def is_collision_with_wall(self):
         if self.head.xcor() == 300 or self.head.xcor() == -300 or self.head.ycor() == 300 or self.head.ycor() == -300:
             return True
+
+    def is_collision_with_tail(self):
+        for turtle in self.all_turtles[2:]:
+            if self.head.distance(turtle) < 10:
+                return True
+
+
 
 
