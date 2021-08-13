@@ -45,13 +45,15 @@ class Snake:
             self.head.setheading(0)
 
     def is_collision_with_wall(self):
-        if self.head.xcor() == 300 or self.head.xcor() == -300 or self.head.ycor() == 300 or self.head.ycor() == -300:
+        if self.head.xcor() > 280 or self.head.xcor() < -280 or self.head.ycor() > 280 or self.head.ycor() < -280:
             return True
+        return False
 
     def is_collision_with_tail(self):
         for turtle in self.all_turtles[2:]:
             if self.head.distance(turtle) < 10:
                 return True
+        return False
 
 
 
