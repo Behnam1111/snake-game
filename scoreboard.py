@@ -1,4 +1,4 @@
-from turtle import Turtle, Screen
+from turtle import Turtle
 
 
 class Scoreboard(Turtle):
@@ -10,7 +10,7 @@ class Scoreboard(Turtle):
         self.goto(0, 250)
         self.shapesize(stretch_wid=3, stretch_len=3)
         self.hideturtle()
-        self.write(f"Score : 0", False, "center", ("Arial", 20, "normal"))
+        self.show_score()
 
     def raise_score(self):
         self.score += 1

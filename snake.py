@@ -38,4 +38,8 @@ class Snake:
         if self.head.heading() != 180:
             self.head.setheading(0)
 
+    def is_collision_with_wall(self):
+        if self.head.xcor() == 300 or self.head.xcor() == -300 or self.head.ycor() == 300 or self.head.ycor() == -300:
+            return True
+
 
