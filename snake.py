@@ -23,7 +23,7 @@ class Snake:
         self.head.forward(20)
 
     def up(self):
-        if self.head.heading() != 180:
+        if self.head.heading() != 270:
             self.head.setheading(90)
 
     def left(self):
@@ -35,7 +35,7 @@ class Snake:
             self.head.setheading(270)
 
     def right(self):
-        if self.head.heading() != 0:
-            self.head.setheading(180)
+        if self.head.heading() != 180:
+            self.head.setheading(0)
 
 
