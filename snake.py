@@ -13,6 +13,13 @@ class Snake:
         for position in self.starting_positions:
             self.add_snake(position)
 
+    def clear_snake(self):
+        for turtle in self.all_turtles:
+            turtle.goto(1000, 1000)
+        self.all_turtles.clear()
+        self.create_snake()
+        self.head = self.all_turtles[0]
+
     def add_snake(self, position):
         new_turtle = Turtle(shape="square")
         new_turtle.color("white", "white")

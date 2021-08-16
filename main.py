@@ -30,7 +30,7 @@ while game_is_on:
         food.refresh()
         snake.extend()
     if snake.is_collision_with_wall() or snake.is_collision_with_tail():
-        game_is_on = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        snake.clear_snake()
 
 screen.exitonclick()
